@@ -1,5 +1,20 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+const seenNumbers = {}
+
+for (let i = 0; i < array.length; i++) {
+  const complement = target - array[i]
+  if (seenNumbers[complement]) return true
+  seenNumbers[array[i]] = true
+}
+return false
+
+//  for (let i=0; i < array.length; i++) {
+//   const complement = target-array[i]
+//   for (let j = i + 1; j < array.lenght; j++)
+//     if(array[j] === complement) return true
+//  }
+//  return false
 }
 
 /* 
@@ -8,10 +23,16 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
+    take in the array, check the sum of each pair of numbers
+    check the sum of each pair of numbers against target number
+    if target number = any array pair sum return true
+    otherwise return false
+  */
+ 
+ /*
+ Add written explanation of your solution here
+ write a function that takes in an array, and a target number
+ function should return true if any pair of number adds up to the target number
 */
 
 // You can run `node index.js` to view these console logs
